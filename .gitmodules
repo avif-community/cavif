@@ -10,7 +10,7 @@
 	url = https://git.code.sf.net/p/libpng/code
 [submodule "external/libavif-container"]
 	path = external/libavif-container
-	url = https://github.com/link-u/libavif-container
+	url = https://github.com/avif-community/libavif-container
 [submodule "external/zlib"]
 	path = external/zlib
 	url = https://github.com/madler/zlib

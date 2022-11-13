@@ -2,10 +2,10 @@
 
 |         | Status |
 |--|---|
-| Linux | [![Build on Linux](https://github.com/link-u/cavif/workflows/Build%20on%20Linux/badge.svg) ](https://github.com/link-u/cavif/actions?query=workflow%3A%22Build+on+Linux%22) |
-| Linux(.deb) | [![Build debian packages](https://github.com/link-u/cavif/workflows/Build%20debian%20packages/badge.svg)](https://github.com/link-u/cavif/actions?query=workflow%3A%22Build+debian+packages%22) |
-| macOS | [![Build on macOS](https://github.com/link-u/cavif/workflows/Build%20on%20macOS/badge.svg)](https://github.com/link-u/cavif/actions?query=workflow%3A%22Build+on+macOS%22) |
-| Windows | [![Build on Windows](https://github.com/link-u/cavif/workflows/Build%20on%20Windows/badge.svg)](https://github.com/link-u/cavif/actions?query=workflow%3A%22Build+on+Windows%22) |
+| Linux | [![Build on Linux](https://github.com/avif-community/cavif/workflows/Build%20on%20Linux/badge.svg) ](https://github.com/avif-community/cavif/actions?query=workflow%3A%22Build+on+Linux%22) |
+| Linux(.deb) | [![Build debian packages](https://github.com/avif-community/cavif/workflows/Build%20debian%20packages/badge.svg)](https://github.com/avif-community/cavif/actions?query=workflow%3A%22Build+debian+packages%22) |
+| macOS | [![Build on macOS](https://github.com/avif-community/cavif/workflows/Build%20on%20macOS/badge.svg)](https://github.com/avif-community/cavif/actions?query=workflow%3A%22Build+on+macOS%22) |
+| Windows | [![Build on Windows](https://github.com/avif-community/cavif/workflows/Build%20on%20Windows/badge.svg)](https://github.com/avif-community/cavif/actions?query=workflow%3A%22Build+on+Windows%22) |
 
 ## Description (en)
 
@@ -47,13 +47,13 @@ meson and ninja are required to build libvmaf.
 
 Please see: https://mesonbuild.com/Quick-guide.html
 
-Or another method: You can use python's venv to install. [See our CI about details](https://github.com/link-u/cavif/blob/master/.github/workflows/build-on-linux.yml).
+Or another method: You can use python's venv to install. [See our CI about details](https://github.com/avif-community/cavif/blob/master/.github/workflows/build-on-linux.yml).
 
 ## Build steps
 
 ```bash
 # cloning this repository with dependencies.
-git clone --recurse-submodules --recursive https://github.com/link-u/cavif
+git clone --recurse-submodules --recursive https://github.com/avif-community/cavif
 
 cd cavif
 
@@ -84,7 +84,7 @@ ninja
 cavif -i <input.png> -o <output.avif>
 ```
 
-Example avif files are available in [AOMediaCodec/av1-avif](https://github.com/AOMediaCodec/av1-avif/tree/master/testFiles) or [link-u/avif-sample-images](https://github.com/link-u/avif-sample-images).
+Example avif files are available in [AOMediaCodec/av1-avif](https://github.com/AOMediaCodec/av1-avif/tree/master/testFiles) or [avif-community/avif-sample-images](https://github.com/avif-community/avif-sample-images).
 
 (Currently, detailed documentation is only in [Japanese](./doc/ja_JP/README.md))
 
@@ -581,6 +581,6 @@ OPTIONS
 
 # Related repositories
 
- - [link-u/davif](https://github.com/link-u/davif) - avif decoder, using dav1d directly.
- - [link-u/libavif-container](https://github.com/link-u/libavif-container) - a library to parse avif container.
- - [link-u/avif-sample-images](https://github.com/link-u/avif-sample-images) - sample images from us.
+ - [avif-community/davif](https://github.com/avif-community/davif) - avif decoder, using dav1d directly.
+ - [avif-community/libavif-container](https://github.com/avif-community/libavif-container) - a library to parse avif container.
+ - [avif-community/avif-sample-images](https://github.com/avif-community/avif-sample-images) - sample images from us.
