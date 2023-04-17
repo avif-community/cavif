@@ -11,9 +11,9 @@
 
 avif encoder, using [libaom](https://aomedia.googlesource.com/aom/) directly.
 
-[avif (AV1 Image File Format)](https://aomediacodec.github.io/av1-avif/) is a still picture format uses a keyframe of [AV1](https://aomediacodec.github.io/av1-spec/av1-spec.pdf).
+[avif (AV1 Image File Format)](https://aomediacodec.github.io/av1-avif/) is a still picture format that uses a keyframe of [AV1](https://aomediacodec.github.io/av1-spec/av1-spec.pdf).
 
-The most significant mission of this project is "**Make it enable to tune libaom's all encoding options to optimize quality/size ratio as nice as possible human beings can**".
+The most significant mission of this project is "**Enable use of all libaom encoding options to optimize quality/size ratio as much as humanly possible.**".
 
 ## Description (ja)
 
@@ -25,7 +25,7 @@ cavifは、ラッパーを介さず [libaom](https://aomedia.googlesource.com/ao
 
 # How to build
 
-## Pre-requirements
+## Pre-requisites
 
 ### cmake >= 3.13
 
@@ -69,7 +69,7 @@ mkdir build && cd build
 # If your system gcc is 8.0 or higher:
 cmake -G 'Ninja' ..
 
-# If not, please install gcc-8 (or higher) and tell them to CMake.
+# If not, please install gcc-8 and g++-8 (or higher) and configure CMake to use those versions.
 CXX=g++-8 CC=gcc-8 cmake -G 'Ninja' ..
 
 # build and get cavif binary!
@@ -90,7 +90,7 @@ Example avif files are available in [AOMediaCodec/av1-avif](https://github.com/A
 
 ## basic usage (alpha)
 
-You have to encode alpha plane separately(Of course, it's to achieve best image quality!).
+You have to encode alpha plane separately in order to achieve best image quality!.
 
 ```bash
 cavif -i <input.png> -o <output-alpha.avif> --encode-target alpha --monochrome
@@ -494,7 +494,7 @@ OPTIONS
                     disable rectangular transforms
 
         --use-dct-only
-                    Use DCT tx onlyq
+                    Use DCT tx only
 
         --use-default-tx-only
                     use default tx type only

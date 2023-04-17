@@ -283,7 +283,7 @@ clipp::group Config::createCommandLineFlags() {
       option("--disable-flip-idtx").doc("disable flip and identity transforms").set(enableFlipIDTX, false),
       option("--enable-rect-tx").doc("enable rectangular transforms (default)").set(enableRectTX, true),
       option("--disable-rect-tx").doc("disable rectangular transforms").set(enableRectTX, false),
-      option("--use-dct-only").doc("Use DCT tx onlyq").set(useDCTOnly, true),
+      option("--use-dct-only").doc("Use DCT tx only").set(useDCTOnly, true),
       option("--use-default-tx-only").doc("use default tx type only").set(useDefaultTXOnly, true),
       option("--use-reduced-tx-set").doc("use reduced tx set, transforms w/o flip (4) + Identity (1).").set(useReducedTXSet, true),
       option("--enable-filter-intra").doc("enable (default)").set(enableFilterIntra, true),
