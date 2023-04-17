@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        codename: [bionic, focal]
+        codename: [focal, jammy]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        codename: [bionic, focal]
+        codename: [focal, jammy]
     steps:
       - uses: actions/checkout@v3
       - name: Download artifact
@@ -80,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        codename: [bionic, focal]
+        codename: [focal, jammy]
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v3
@@ -105,7 +105,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        codename: [bionic, focal]
+        codename: [focal, jammy]
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v3
