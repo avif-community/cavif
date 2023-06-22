@@ -13,7 +13,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, ubuntu-20.04]
+        os: [ubuntu-20.04, ubuntu-22.04]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -22,16 +22,8 @@ jobs:
       - name: Install dependencies
         shell: bash
         run: |
-          # Workaround: gcc >= 8.0 is required.
-          case $(lsb_release -cs) in
-            bionic)
-              sudo apt install -y --no-install-recommends \
-                 gcc-8 g++-8 yasm nasm python3-venv python3-pip python3-setuptools ;;
-            *)
-              sudo apt install -y --no-install-recommends \
-                 gcc g++ yasm nasm python3-venv python3-pip python3-setuptools ;;
-          esac
-          sudo apt install -y gcc-8 g++-8 yasm python3-venv python3-pip python3-setuptools
+          sudo apt install -y --no-install-recommends \
+              gcc g++ yasm nasm python3-venv python3-pip python3-setuptools
           python3 -m venv venv
           source venv/bin/activate
           pip3 install wheel
@@ -41,14 +33,6 @@ jobs:
         shell: bash
         run: |
           source venv/bin/activate
-          # Workaround: gcc >= 8.0 is required.
-          case $(lsb_release -cs) in
-            bionic)
-              export CC=gcc-8
-              export CXX=g++-8
-              ;;
-            *) ;;
-          esac
           bash scripts/reset-submodules.sh
           bash scripts/apply-patches.sh
           bash scripts/build-deps.sh

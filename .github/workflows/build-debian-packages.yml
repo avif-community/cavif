@@ -15,14 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        codename: [bionic, focal]
+        codename: [focal, jammy]
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: 'recursive'
           fetch-depth: 0
       - name: Build debian package
-        uses: link-u/execute-on-separated-ubuntu@master
+        uses: avif-community/execute-on-separated-ubuntu@main
         with:
           script: scripts/build-debian-package.sh
           on: ${{ matrix.codename }}
@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        codename: [bionic, focal]
+        codename: [focal, jammy]
     steps:
       - uses: actions/checkout@v3
       - name: Download artifact
@@ -51,7 +51,7 @@ jobs:
           name: ${{ matrix.codename }}
           path: artifact
       - name: Check debian package
-        uses: link-u/execute-on-separated-ubuntu@master
+        uses: avif-community/execute-on-separated-ubuntu@main
         with:
           script: scripts/test-debian-package.sh
           on: ${{ matrix.codename }}
@@ -80,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        codename: [bionic, focal]
+        codename: [focal, jammy]
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v3
@@ -99,38 +99,3 @@ jobs:
           asset_path: ${{ matrix.codename }}.zip
           asset_name: ${{ matrix.codename }}.zip
           asset_content_type: application/zip
-
-  deploy:
-    needs: upload
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        codename: [bionic, focal]
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ matrix.codename }}
-          path: ${{ matrix.codename }}
-      - name: Listup files
-        shell: bash
-        run: find .
-      - name: Deploy
-        shell: bash
-        run: |
-          printenv DEPLOY_SCRIPT | base64 -d > deploy.sh
-          bash deploy.sh upload "${{ matrix.codename }}" "avif" "${{ matrix.codename }}"
-        env:
-          DEPLOY_SCRIPT: ${{ secrets.YOROZU_DEPLOY_SCRIPT }}
-
-  sign:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Sign
-        shell: bash
-        run: |
-          printenv DEPLOY_SCRIPT | base64 -d > deploy.sh
-          bash deploy.sh sign
-        env:
-          DEPLOY_SCRIPT: ${{ secrets.YOROZU_DEPLOY_SCRIPT }}
